@@ -78,5 +78,20 @@ namespace WindowsEnvEditor
 			}
 			return;
 		}
+
+		private void lstEnvVarValues_MouseClick(object sender, MouseEventArgs e)
+		{
+			if(lstEnvVarValues.SelectedItems.Count == 0)
+				return;
+
+			ListViewItem selected_item = lstEnvVarValues.SelectedItems[0];
+			selected_item.BeginEdit();
+		}
+
+		private void frmMain_Click(object sender, EventArgs e)
+		{
+			if (lstEnvVarValues.SelectedItems.Count == 0)
+				return;
+		}
 	}
 }

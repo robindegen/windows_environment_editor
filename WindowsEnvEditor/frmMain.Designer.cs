@@ -29,10 +29,11 @@
 		private void InitializeComponent()
 		{
 			this.lstEnvVars = new System.Windows.Forms.ListBox();
-			this.lstEnvVarValues = new System.Windows.Forms.ListBox();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.rdoSystem = new System.Windows.Forms.RadioButton();
 			this.rdoUser = new System.Windows.Forms.RadioButton();
+			this.lstEnvVarValues = new System.Windows.Forms.ListView();
+			this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.groupBox1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -46,17 +47,6 @@
 			this.lstEnvVars.Size = new System.Drawing.Size(262, 355);
 			this.lstEnvVars.TabIndex = 0;
 			this.lstEnvVars.SelectedIndexChanged += new System.EventHandler(this.lstEnvVars_SelectedIndexChanged);
-			// 
-			// lstEnvVarValues
-			// 
-			this.lstEnvVarValues.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.lstEnvVarValues.FormattingEnabled = true;
-			this.lstEnvVarValues.Location = new System.Drawing.Point(280, 15);
-			this.lstEnvVarValues.Name = "lstEnvVarValues";
-			this.lstEnvVarValues.Size = new System.Drawing.Size(475, 420);
-			this.lstEnvVarValues.TabIndex = 1;
 			// 
 			// groupBox1
 			// 
@@ -93,17 +83,38 @@
 			this.rdoUser.UseVisualStyleBackColor = true;
 			this.rdoUser.CheckedChanged += new System.EventHandler(this.rdoUser_CheckedChanged);
 			// 
+			// lstEnvVarValues
+			// 
+			this.lstEnvVarValues.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1});
+			this.lstEnvVarValues.FullRowSelect = true;
+			this.lstEnvVarValues.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+			this.lstEnvVarValues.LabelEdit = true;
+			this.lstEnvVarValues.Location = new System.Drawing.Point(280, 12);
+			this.lstEnvVarValues.MultiSelect = false;
+			this.lstEnvVarValues.Name = "lstEnvVarValues";
+			this.lstEnvVarValues.Size = new System.Drawing.Size(568, 423);
+			this.lstEnvVarValues.TabIndex = 3;
+			this.lstEnvVarValues.UseCompatibleStateImageBehavior = false;
+			this.lstEnvVarValues.View = System.Windows.Forms.View.Details;
+			this.lstEnvVarValues.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lstEnvVarValues_MouseClick);
+			// 
+			// columnHeader1
+			// 
+			this.columnHeader1.Width = 560;
+			// 
 			// frmMain
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(767, 446);
-			this.Controls.Add(this.groupBox1);
+			this.ClientSize = new System.Drawing.Size(860, 446);
 			this.Controls.Add(this.lstEnvVarValues);
+			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.lstEnvVars);
 			this.Name = "frmMain";
 			this.Text = "Environment Editor";
 			this.Load += new System.EventHandler(this.frmMain_Load);
+			this.Click += new System.EventHandler(this.frmMain_Click);
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
 			this.ResumeLayout(false);
@@ -113,10 +124,11 @@
 		#endregion
 
 		private System.Windows.Forms.ListBox lstEnvVars;
-		private System.Windows.Forms.ListBox lstEnvVarValues;
 		private System.Windows.Forms.GroupBox groupBox1;
 		private System.Windows.Forms.RadioButton rdoSystem;
 		private System.Windows.Forms.RadioButton rdoUser;
+		private System.Windows.Forms.ListView lstEnvVarValues;
+		private System.Windows.Forms.ColumnHeader columnHeader1;
 	}
 }
 
